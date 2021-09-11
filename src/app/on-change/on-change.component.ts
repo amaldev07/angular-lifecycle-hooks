@@ -1,0 +1,22 @@
+import { Component, Input, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-on-change',
+  templateUrl: './on-change.component.html',
+  styleUrls: ['./on-change.component.scss']
+})
+export class OnChangeComponent implements OnInit {
+  @Input() name = '';
+  @Input() age = '';
+  constructor() { }
+  ngOnChanges(changes: any) {
+    for (const propName in changes) {
+      const chng = changes[propName];
+      const cur = JSON.stringify(chng.currentValue);
+      const prev = JSON.stringify(chng.previousValue);
+    }
+  }
+  ngOnInit(): void {
+  }
+
+}
