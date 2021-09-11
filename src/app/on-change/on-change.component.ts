@@ -8,7 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class OnChangeComponent implements OnInit {
   @Input() name = '';
   @Input() age = '';
-  constructor() { }
+  constructor() {
+  }
   ngOnChanges(changes: any) {
     for (const propName in changes) {
       const chng = changes[propName];
@@ -17,6 +18,11 @@ export class OnChangeComponent implements OnInit {
     }
   }
   ngOnInit(): void {
+  }
+
+  ngDoCheck() {
+    // all the detection will be trigger this
+    // eg if you click on a field , if you click on the page etc
   }
 
 }
